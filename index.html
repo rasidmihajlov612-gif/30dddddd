@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Посты на 30 дней · Аренда · Набор агентов · Threads</title>
+<style>
+  :root{
+    --bg:#0c0f17; --card:#151a26; --card2:#1b2233; --line:#262f44;
+    --txt:#eef2fb; --muted:#9aa6c0; --accent:#ffd23f; --accent2:#5b8cff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:radial-gradient(1200px 600px at 80% -10%,#1a2236 0,transparent 60%),var(--bg);
+    color:var(--txt);line-height:1.55}
+  .wrap{max-width:1000px;margin:0 auto;padding:44px 20px 90px}
+  .badge{display:inline-block;background:var(--accent);color:#1a1300;font-weight:700;
+    font-size:13px;letter-spacing:.4px;padding:6px 12px;border-radius:999px;text-transform:uppercase}
+  h1{font-size:clamp(28px,5vw,42px);margin:16px 0 8px;font-weight:800;letter-spacing:-.5px}
+  .lead{color:var(--muted);max-width:760px;font-size:17px}
+  .roles{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+  .rbox{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:8px 13px;font-size:14px}
+  .rbox b{color:var(--accent)}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px;align-items:center}
+  .tag{font-weight:700;font-size:12px;padding:4px 9px;border-radius:7px;white-space:nowrap}
+  .t-money{background:rgba(46,204,113,.16);color:#7ef0a8}
+  .t-fun{background:rgba(255,93,177,.16);color:#ff9ed3}
+  .t-expert{background:rgba(91,140,255,.18);color:#a8c0ff}
+  .t-people{background:rgba(255,210,63,.16);color:#ffe07a}
+  .rt{font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;white-space:nowrap}
+  .r-office{background:rgba(91,140,255,.16);color:#a8c0ff}
+  .r-remote{background:rgba(255,93,177,.14);color:#ff9ed3}
+  .r-both{background:rgba(255,210,63,.14);color:#ffe07a}
+  .week{margin:42px 0 6px;font-size:22px;font-weight:800;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .week .wk{background:var(--accent2);color:#fff;border-radius:9px;padding:4px 12px;font-size:14px}
+  .week small{color:var(--muted);font-weight:500;font-size:15px}
+  .day{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 8px;margin:14px 0}
+  .dhead{display:flex;align-items:baseline;gap:10px;margin-bottom:6px;flex-wrap:wrap}
+  .dnum{font-size:18px;font-weight:800}
+  .ddate{color:var(--accent);font-size:15px;font-weight:700}
+  .dwd{color:var(--muted);font-size:14px}
+  .post{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:14px 15px;margin:10px 0;
+    transition:border-color .15s}
+  .post.copied{border-color:#2ecc71}
+  .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);
+    background:#2ecc71;color:#08130b;font-weight:700;padding:11px 20px;border-radius:999px;
+    font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50;
+    box-shadow:0 8px 30px rgba(0,0,0,.4)}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .ptop{display:flex;align-items:center;gap:8px;margin-bottom:9px;flex-wrap:wrap}
+  .slot{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+  .when{font-size:12px;color:#dbe3f7;background:#222a3d;border:1px solid var(--line);
+    border-radius:999px;padding:3px 10px;font-weight:600;white-space:nowrap}
+  .copybtn{margin-left:auto;background:var(--accent);color:#1a1300;border:none;border-radius:9px;
+    padding:7px 13px;font-size:13px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;
+    gap:6px;transition:background .15s,transform .05s;-webkit-tap-highlight-color:transparent}
+  .copybtn:hover{background:#ffe069}
+  .copybtn:active{transform:scale(.95)}
+  .copybtn.ok{background:#2ecc71;color:#08130b}
+  .ptext{white-space:pre-wrap;font-size:15px}
+  .foot{margin-top:60px;color:var(--muted);font-size:13px;text-align:center;border-top:1px solid var(--line);padding-top:24px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="badge">Контент-план · Аренда · 30 дней · Threads</span>
+  <h1>Посты на каждый день месяца</h1>
+  <p class="lead">Старт с утра <b>28 июня</b>. У каждого поста стоит дата и праймтайм по Москве, CTA уже вшит в текст. Нажми кнопку <b>«Копировать»</b> справа от поста, текст уйдёт в буфер целиком. Время и цифры меняй под себя.</p>
+  <div class="roles">
+    <div class="rbox">🏢 <b>Офис:</b> 50% со сделки, 100% после плана</div>
+    <div class="rbox">🏠 <b>Удалёнка:</b> 2000 ₽ за каждого собственника</div>
+  </div>
+  <div class="legend">
+    <span class="tag t-money">💰 Деньги</span>
+    <span class="tag t-fun">🔥 Движ</span>
+    <span class="tag t-expert">🧠 Экспертиза</span>
+    <span class="tag t-people">⭐ Люди</span>
+    &nbsp;·&nbsp;
+    <span class="rt r-office">🏢 офис</span>
+    <span class="rt r-remote">🏠 удалёнка</span>
+    <span class="rt r-both">⚡ обе роли</span>
+  </div>
+  <p class="lead" style="font-size:14px;margin-top:14px">🕘 Праймтайм МСК: будни 09:00 и 20:00, выходные 11:00 и 19:00. Утром бьём деньгами и экспертизой, вечером движем и греем.</p>
+
+  <!-- WEEK 1 -->
+  <div class="week"><span class="wk">Неделя 1</span> Знакомство и деньги <small>· кто мы и как платим</small></div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 1</span><span class="ddate">28 июня</span><span class="dwd">воскресенье</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 28 июня · 🕚 11:00 МСК</span><span class="tag t-money">💰 Деньги</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Ищем людей в команду по аренде. Две роли, два способа зарабатывать.
+
+🏢 Офис. Закрываешь сделки и забираешь 50%. Сделал план, забираешь уже 100% с каждой.
+🏠 Удалёнка. Приводишь собственников из дома и получаешь 2000 ₽ за каждого.
+
+Выбирай своё. Пиши ОФИС или УДАЛЁНКА в комменты 👇</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 28 июня · 🕖 19:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Кто мы вообще такие.
+
+Молодая команда по аренде. Серых костюмов нет, слова «уважаемый клиент» тоже.
+
+Аренда даёт быстрые деньги. Сделка закрывается за пару дней, а не за полгода.
+
+Подпишись, если надоел оклад.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 2</span><span class="ddate">29 июня</span><span class="dwd">понедельник</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 29 июня · 🕘 09:00 МСК</span><span class="tag t-money">💰 Деньги</span><span class="rt r-remote">🏠 удалёнка</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Самый простой способ заработать с нами это из дома.
+
+Находишь собственника, который хочет сдать квартиру. Передаёшь его нам. Получаешь 2000 ₽.
+
+10 собственников дают 20 000 ₽.
+30 собственников дают 60 000 ₽.
+Сколько приведёшь, столько и получишь.
+
+Хочешь так? Пиши УДАЛЁНКА.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 29 июня · 🕗 20:00 МСК</span><span class="tag t-people">⭐ Люди</span><span class="rt r-remote">🏠 удалёнка</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Год назад Катя сидела в декрете и думала, где взять деньги, не выходя из дома.
+
+Сейчас приводит нам собственников между делом и стабильно докидывает к бюджету семьи.
+
+Что изменилось. Один отклик. Завтра расскажу подробно.
+
+Жми 🔥 если ждёшь историю.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 3</span><span class="ddate">30 июня</span><span class="dwd">вторник</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 30 июня · 🕘 09:00 МСК</span><span class="tag t-money">💰 Деньги</span><span class="rt r-office">🏢 офис</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Как мы платим офисному агенту. Честно.
+
+С каждой сделки по аренде ты забираешь половину.
+Выполнил план месяца, и дальше комиссия идёт целиком тебе.
+
+Чем больше закрываешь, тем жирнее твой процент по факту. Потолка нет.
+
+Хочешь в офис? Пиши ОФИС.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 30 июня · 🕗 20:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Опрос. Что бесит в текущей работе больше всего.
+
+1️⃣ Потолок по деньгам
+2️⃣ Начальник, который дышит в спину
+3️⃣ Будильник в 6 утра
+4️⃣ Всё сразу 😅
+
+Пиши цифру в комменты, соберём народный топ боли.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 4</span><span class="ddate">1 июля</span><span class="dwd">среда</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 1 июля · 🕘 09:00 МСК</span><span class="tag t-expert">🧠 Экспертиза</span><span class="rt r-remote">🏠 удалёнка</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">«А где брать собственников?» Главный вопрос про удалёнку.
+
+Они везде:
+знакомые, у кого пустует квартира
+объявления, где человек сдаёт сам
+чаты дома, района, соседей
+сарафан и рекомендации
+
+Нашёл того, кто хочет сдать. Передал нам. Плюс 2000 ₽. Всему научим.
+
+Сохрани, чтобы не потерять.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 1 июля · 🕗 20:00 МСК</span><span class="tag t-people">⭐ Люди</span><span class="rt r-office">🏢 офис</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">«Думал, аренда это копейки. Оказалось, стабильный поток сделок и нормальные деньги».
+
+Артём, офисный агент, в команде 5 месяцев.
+
+Иногда одна сделка в неделю меняет отношение к профессии.
+
+Жми 🔥 если согласен.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 5</span><span class="ddate">2 июля</span><span class="dwd">четверг</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 2 июля · 🕘 09:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Как выглядит обычный день в команде по аренде.
+
+Утром созвон с мемами вместо скучной планёрки.
+Днём офисные на показах, удалёнщики скидывают собственников.
+Вечером считаем, кто сколько заработал 🔔
+
+На «работу» не очень похоже, да? Хочешь к нам? Пиши +.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 2 июля · 🕗 20:00 МСК</span><span class="tag t-money">💰 Деньги</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Свежие итоги команды за последние дни.
+
+🔔 11 сделок по аренде закрыли офисные
+🏠 38 собственников привели удалёнщики, это 76 000 ₽ выплат
+🆕 3 новичка стартовали
+
+Обычные дни, не рекорд. Теперь представь месяц.
+
+Набор открыт. Пиши ОФИС или УДАЛЁНКА.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 6</span><span class="ddate">3 июля</span><span class="dwd">пятница</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 3 июля · 🕘 09:00 МСК</span><span class="tag t-people">⭐ Люди</span><span class="rt r-remote">🏠 удалёнка</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Пятница. Все мысленно уже на выходных.
+
+А наша удалёнщица Лена за утренним кофе скинула нам трёх собственников из чата своего дома. Плюс 6000 ₽ за 20 минут в телефоне.
+
+Свобода это работать когда и сколько хочешь ты.
+
+❤️ если про свободу. А хочешь так же, пиши УДАЛЁНКА.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 3 июля · 🕗 20:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Агент по аренде в кино: дорогой костюм, идеальная причёска.
+
+Агент по аренде в жизни: худи, кофе на вынос и 47 чатов, где кто-то сдаёт квартиру 😅
+
+А деньги капают одинаково.
+
+Узнал себя? Лови 😂 и подписывайся.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 7</span><span class="ddate">4 июля</span><span class="dwd">суббота</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 4 июля · 🕚 11:00 МСК</span><span class="tag t-expert">🧠 Экспертиза</span><span class="rt r-office">🏢 офис</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Что должен уметь офисный агент, чтобы зарабатывать. Подсказка: не «впаривать».
+
+Слушать, что нужно арендатору.
+Знать районы и цены аренды.
+Свести собственника и арендатора.
+Не бояться звонить.
+
+Этому мы учим за пару недель. Бесплатно, на старте.
+
+Что из списка пугает больше всего? Пиши в комменты.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 4 июля · 🕖 19:00 МСК</span><span class="tag t-money">💰 Деньги</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Подведём черту недели.
+
+В найме ты продаёшь время за фикс с потолком.
+У нас офисный берёт 50%, а после плана 100% с каждой сделки. Удалёнщик берёт 2000 ₽ за каждого собственника, без потолка.
+
+На след. неделе покажу кухню. Как реально идёт сделка по аренде.
+
+Подпишись, чтобы не пропустить.</div></div>
+  </div>
+
+  <!-- WEEK 2 -->
+  <div class="week"><span class="wk">Неделя 2</span> Доверие и экспертиза <small>· снимаем страх «я не смогу»</small></div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 8</span><span class="ddate">5 июля</span><span class="dwd">воскресенье</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 5 июля · 🕚 11:00 МСК</span><span class="tag t-expert">🧠 Экспертиза</span><span class="rt r-office">🏢 офис</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Как идёт сделка по аренде от начала до денег. Без магии.
+
+1. Собственник дал квартиру
+2. Сделали фото и объявление
+3. Показ арендатору
+4. Договорились по цене и условиям
+5. Договор, ключи, твоя комиссия
+
+Пять шагов, и всё быстро. На каждом ведём новичка за руку.
+
+Какой шаг кажется сложным? Пиши, разберу.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 5 июля · 🕖 19:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Завтра понедельник, а паники нет. Почему.
+
+Нет отчёта перед начальником. Есть свои сделки и своя касса. Или свои собственники и свои 2000 за каждого.
+
+Когда работаешь на результат, понедельник перестаёт быть наказанием.
+
+Жми 🔥 если устал от понедельников.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 9</span><span class="ddate">6 июля</span><span class="dwd">понедельник</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 6 июля · 🕘 09:00 МСК</span><span class="tag t-expert">🧠 Экспертиза</span><span class="rt r-office">🏢 офис</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">5 ошибок новичка в аренде, из-за которых горит сделка.
+
+1. Тянет с ответом, арендатор уходит к другим
+2. Не уточнил условия собственника
+3. Не зафиксировал договорённости
+4. Давит вместо того, чтобы слушать
+5. Сдаётся после первого «дорого»
+
+Аренда быстрая. Кто шустрее, тот и в деньгах.
+
+Сохрани, пригодится.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 6 июля · 🕗 20:00 МСК</span><span class="tag t-people">⭐ Люди</span><span class="rt r-remote">🏠 удалёнка</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Помните Катю из декрета? Обещанная история.
+
+Неделя 1. Скинула 4 собственников из соседского чата.
+Месяц 1. Поняла систему, пошёл поток.
+Сейчас. Стабильно приводит 20-30 собственников в месяц, не выходя из дома.
+
+Что изменилось. Она перестала думать «у меня не получится».
+
+Жми ❤️ Кате и пиши УДАЛЁНКА, если хочешь так же.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 10</span><span class="ddate">7 июля</span><span class="dwd">вторник</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 7 июля · 🕘 09:00 МСК</span><span class="tag t-expert">🧠 Экспертиза</span><span class="rt r-remote">🏠 удалёнка</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Где удалёнщику искать собственников. 5 рабочих мест.
+
+1. Чаты своего дома и района
+2. Авито и Циан, где человек сдаёт сам
+3. Знакомые с пустой квартирой
+4. Соседи, родственники, друзья друзей
+5. Тематические группы в соцсетях
+
+Нашёл «хочу сдать», передал нам, получил 2000 ₽.
+
+Откуда начнёшь? Пиши в комменты.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 7 июля · 🕗 20:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Вторник, день обучения.
+
+Сегодня разбирали реальную сделку. Где офисный мог закрыть быстрее, а удалёнщик найти собственника проще. Новички задавали вопросы, опытные делились фишками.
+
+Учиться в кругу своих приятнее, чем по ютубу в одиночку.
+
+Жми 🔥 за командное обучение.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 11</span><span class="ddate">8 июля</span><span class="dwd">среда</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 8 июля · 🕘 09:00 МСК</span><span class="tag t-money">💰 Деньги</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Сколько реально выходит в первый месяц. Честно.
+
+🏠 Удалёнка. Привёл 15 собственников, это 30 000 ₽. Между делом, из дома.
+🏢 Офис. 3-5 сделок по аренде по 50%, уже ощутимо. А после плана 100%.
+
+Миллион за неделю не обещаем. Обещаем понятную систему, где результат зависит от тебя.
+
+Ценишь честность? Жми 🔥 и пиши свою роль.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 8 июля · 🕗 20:00 МСК</span><span class="tag t-people">⭐ Люди</span><span class="rt r-remote">🏠 удалёнка</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">«Приводлю собственников прямо из дома, отвожу ребёнка в сад и всё равно зарабатываю».
+
+Марина, удалёнщица.
+
+2000 ₽ за каждого собственника. Тебе не нужны ни офис, ни опыт, ни показы. Только телефон.
+
+Хочешь так? Пиши УДАЛЁНКА.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 12</span><span class="ddate">9 июля</span><span class="dwd">четверг</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 9 июля · 🕘 09:00 МСК</span><span class="tag t-expert">🧠 Экспертиза</span><span class="rt r-office">🏢 офис</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Главный навык офисного агента это не продажи. Это умение задавать вопросы.
+
+«На какой срок?»
+«С животными или нет?»
+«Какой бюджет реально?»
+
+Кто лучше спрашивает, тот быстрее закрывает аренду. Этому учим в первую очередь.
+
+Сохрани правило.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 9 июля · 🕗 20:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Командный челлендж дня. Кто из офисных назначит больше показов, а кто из удалёнщиков приведёт больше собственников, забирает приз 🎁
+
+Азарт, движ и полная неделя денег впереди.
+
+У нас работа и игра почти одно и то же.
+
+Жми 🔥 если хочешь в такую атмосферу.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 13</span><span class="ddate">10 июля</span><span class="dwd">пятница</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 10 июля · 🕘 09:00 МСК</span><span class="tag t-people">⭐ Люди</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Спросили у агентов, что бы они сказали себе до старта.
+
+«Не бойся звонить, это не страшно».
+«Удалёнку реально совмещать с основной работой».
+«Перестань ждать идеального момента».
+
+Если читаешь и думаешь «а вдруг», это твой знак.
+
+Откликнись, терять нечего. Пиши ОФИС или УДАЛЁНКА.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 10 июля · 🕗 20:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Мем-реальность аренды.
+
+Собственник: «Хочу за свою однушку как за трёшку в центре».
+Агент: 🙂🔫
+
+Но мы и таких любим. Чем упрямее собственник, тем приятнее закрытая сделка.
+
+Кто работал, поймёт. Лови 😂 и подписывайся.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 14</span><span class="ddate">11 июля</span><span class="dwd">суббота</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 11 июля · 🕚 11:00 МСК</span><span class="tag t-expert">🧠 Экспертиза</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Что умеет новичок через 2 недели у нас.
+
+🏠 Удалёнщик сам находит собственников и стабильно их приводит.
+🏢 Офисный ведёт показ, общается с собственником, близок к первой сделке.
+
+Две недели, не год. Система решает.
+
+Готов? Пиши ОФИС или УДАЛЁНКА.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 11 июля · 🕖 19:00 МСК</span><span class="tag t-money">💰 Деньги</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Половина месяца позади. Напомню суть.
+
+🏢 Офис. 50% со сделки, 100% после плана.
+🏠 Удалёнка. 2000 ₽ за каждого собственника.
+
+Аренда это навык, который окупается быстро. На след. неделе покажу команду изнутри.
+
+Подпишись, дальше интереснее.</div></div>
+  </div>
+
+  <!-- WEEK 3 -->
+  <div class="week"><span class="wk">Неделя 3</span> Люди и движ <small>· влюбляем в команду</small></div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 15</span><span class="ddate">12 июля</span><span class="dwd">воскресенье</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 12 июля · 🕚 11:00 МСК</span><span class="tag t-people">⭐ Люди</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Знакомьтесь, наша команда.
+
+В офисе бывший бариста и экс-логист. Теперь забирают 100% с сделок после плана.
+На удалёнке мама в декрете и студент. Приводят собственников между делом.
+
+Объединяет одно. Захотели больше и не побоялись.
+
+Хочешь к нам? Пиши +.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 12 июля · 🕖 19:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-office">🏢 офис</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Как завтра начнётся понедельник в офисе. Не с отчётов, а с кофе, музыки и разбора, кто сколько сделок закрыл.
+
+Заряжаемся друг от друга. Когда вокруг люди, которые рвут, ты тоже не хочешь отставать.
+
+Жми 🔥 за такую атмосферу.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 16</span><span class="ddate">13 июля</span><span class="dwd">понедельник</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 13 июля · 🕘 09:00 МСК</span><span class="tag t-people">⭐ Люди</span><span class="rt r-office">🏢 офис</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">История Дениса. Было и стало.
+
+Было. Курьер, 12 часов на ногах, потолок 60к.
+Стало. Офисный агент по аренде. Выполняет план и забирает 100% с каждой следующей сделки.
+
+Он не гений. Он просто однажды написал нам ОФИС.
+
+Напиши и ты, вдруг твоя история.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 13 июля · 🕗 20:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-office">🏢 офис</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Бэкстейдж показа. Агент, арендатор и кот собственника, который решил «помочь» с осмотром 🐈
+
+В аренде не бывает двух одинаковых дней. Каждый показ это новая история. Скучно точно не будет.
+
+Ставь лайк коту 😂 и подписывайся.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 17</span><span class="ddate">14 июля</span><span class="dwd">вторник</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 14 июля · 🕘 09:00 МСК</span><span class="tag t-money">💰 Деньги</span><span class="rt r-remote">🏠 удалёнка</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">🔔 Удалёнщик месяца.
+
+Паша за месяц привёл 41 собственника. Считаем: 41 умножить на 2000, получается 82 000 ₽.
+
+Из дома. Между парами в универе. Без единого показа.
+
+Кто-то на работе столько за два месяца не видит.
+
+Хочешь так же? Пиши УДАЛЁНКА.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 14 июля · 🕗 20:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Мини-итог дня. Разыграли в команде ужин для того, кто дал больше результата.
+
+У нас не конкуренция на выживание, а здоровый азарт. Офис и удалёнка тянут друг друга вверх, а не топят.
+
+Жми 🔥 за команду, а не террариум.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 18</span><span class="ddate">15 июля</span><span class="dwd">среда</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 15 июля · 🕘 09:00 МСК</span><span class="tag t-people">⭐ Люди</span><span class="rt r-office">🏢 офис</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">«Самое кайфовое это когда отдаёшь арендатору ключи и видишь, что нашёл человеку дом».
+
+Настя, офисный агент.
+
+Да, мы про деньги. Но и про это тоже. Помогать людям с жильём недооценённый кайф.
+
+❤️ если ценишь смысл, а не только деньги.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 15 июля · 🕗 20:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Вопрос подписчикам. Что для тебя важнее.
+
+🅰️ Деньги без потолка. Офис, 100% после плана.
+🅱️ Лёгкий доход из дома. Удалёнка, 2000 за собственника.
+🅾️ И то и другое со временем.
+
+Пиши букву в комменты, подскажу, с чего начать.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 19</span><span class="ddate">16 июля</span><span class="dwd">четверг</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 16 июля · 🕘 09:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-remote">🏠 удалёнка</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Созвон удалёнщиков. Кто-то из дома, кто-то с моря, кто-то из кафе.
+
+Все скидывают собственников, все при деньгах. География не важна, важен результат.
+
+Вот так выглядит работа из любой точки.
+
+Хочешь так? Пиши УДАЛЁНКА.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 16 июля · 🕗 20:00 МСК</span><span class="tag t-money">💰 Деньги</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Недельный итог команды.
+
+🔔 14 сделок по аренде закрыли офисные
+🏠 52 собственника от удалёнщиков, это 104 000 ₽ выплат
+🆕 4 новичка вышли на старт
+
+И снова это норма, а не рекорд. Одна из этих строк может быть про тебя.
+
+Набор идёт. Пиши + в личку.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 20</span><span class="ddate">17 июля</span><span class="dwd">пятница</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 17 июля · 🕘 09:00 МСК</span><span class="tag t-people">⭐ Люди</span><span class="rt r-office">🏢 офис</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Сегодня офисному агенту команда накрыла стол за рекорд месяца по сделкам 🎉
+
+Полгода назад он пришёл «просто попробовать». Закрыл план и весь месяц забирал 100% с каждой аренды.
+
+«Попробовать» иногда меняет всю жизнь.
+
+Жми 🔥 за результат и пиши ОФИС.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 17 июля · 🕗 20:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Корпоративный выезд команды 🎉
+
+Офис и удалёнка вместе. Работаем хард, отдыхаем так же. Это не «дружный коллектив» из вакансий. Это люди, с которыми реально хочется проводить время.
+
+❤️ если ищешь своих.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 21</span><span class="ddate">18 июля</span><span class="dwd">суббота</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 18 июля · 🕚 11:00 МСК</span><span class="tag t-people">⭐ Люди</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">3 типа людей, которым у нас заходит.
+
+Кто хочет в офис и расти до 100% с сделок.
+Кто хочет лёгкий доход из дома по 2000 за собственника.
+Кто готов учиться и не ноет.
+
+Узнал себя? Тогда нам по пути. Пиши цифру в комменты.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 18 июля · 🕖 19:00 МСК</span><span class="tag t-money">💰 Деньги</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Три недели мы показывали деньги, кухню и команду.
+
+С завтра финишная прямая месяца. Открываем набор официально, и в офис, и на удалёнку. Мест ограниченное число.
+
+Если думал «потом», это «потом» наступает на этой неделе.
+
+Готов? Пиши ОФИС или УДАЛЁНКА.</div></div>
+  </div>
+
+  <!-- WEEK 4 -->
+  <div class="week"><span class="wk">Неделя 4</span> Дожим и набор <small>· конвертируем в заявки</small></div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 22</span><span class="ddate">19 июля</span><span class="dwd">воскресенье</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 19 июля · 🕚 11:00 МСК</span><span class="tag t-money">💰 Деньги</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">🚨 НАБОР ОТКРЫТ. Две роли.
+
+🏢 АГЕНТ В ОФИСЕ
+50% с каждой сделки по аренде
+100% после выполнения плана
+обучение, наставник, тёплые заявки
+
+🏠 АГЕНТ-УДАЛЁНЩИК
+2000 ₽ за каждого приведённого собственника
+из дома, без показов, без опыта
+
+Опыт необязателен. Нужно желание. Пиши ОФИС или УДАЛЁНКА в личку.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 19 июля · 🕖 19:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Пока ты думаешь «а вдруг не получится», кто-то уже написал нам и завтра выходит на обучение.
+
+Через месяц один из вас будет жалеть, что не решился. Второй будет считать первые 2000 за собственника или 50% с сделки.
+
+Кем будешь ты? Хватит думать. Пиши +.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 23</span><span class="ddate">20 июля</span><span class="dwd">понедельник</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 20 июля · 🕘 09:00 МСК</span><span class="tag t-expert">🧠 Экспертиза</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">«А что если у меня не получится?»
+
+Честно. На удалёнке провалиться почти невозможно. Нашёл собственника, получил 2000 ₽. На офисе есть наставник, обучение и тёплые заявки.
+
+Не получается только у тех, кто бросает на первой неделе. Остальные зарабатывают.
+
+Какой страх тебя держит? Пиши, разберу.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 20 июля · 🕗 20:00 МСК</span><span class="tag t-people">⭐ Люди</span><span class="rt r-remote">🏠 удалёнка</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">«Боялась, что удалёнка развод. Скинула первого собственника, через день получила 2000 ₽ на карту. Всё реально».
+
+Одна из наших удалёнщиц месяц назад.
+
+Страх до старта это нормально. Жалеть, что не попробовал, хуже.
+
+Откликнись, пока набор открыт. Пиши УДАЛЁНКА.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 24</span><span class="ddate">21 июля</span><span class="dwd">вторник</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 21 июля · 🕘 09:00 МСК</span><span class="tag t-money">💰 Деньги</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Сравни сценарии на месяц.
+
+Найм. Оклад 50к. Потолок. Точка.
+🏠 Удалёнка у нас. 25 собственников по 2000, это 50 000 ₽ между делом из дома.
+🏢 Офис. Сделки по 50%, а после плана 100%, кратно больше.
+
+Цифры не врут. Врёт страх «сиди где сидишь».
+
+Посчитаем твой сценарий? Пиши +.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 21 июля · 🕗 20:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Уже несколько человек написали после старта набора. Места заполняются.
+
+Берём не всех подряд, а тех, кто реально хочет. Чем раньше напишешь ОФИС или УДАЛЁНКА, тем выше шанс.
+
+Бронируй место. Пиши свою роль.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 25</span><span class="ddate">22 июля</span><span class="dwd">среда</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 22 июля · 🕘 09:00 МСК</span><span class="tag t-people">⭐ Люди</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Как проходит первый день новичка.
+
+🏠 Удалёнщик. Показываем, где брать собственников, и ты сразу пробуешь.
+🏢 Офисный. Знакомство с командой, наставник, первые тёплые заявки.
+
+Никто не кидает в воду «плыви сам». В этом и разница.
+
+Хочешь такой старт? Пиши +.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 22 июля · 🕗 20:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Вопрос на засыпку. Что ты потеряешь, если просто напишешь нам.
+
+Ничего. Максимум узнаешь условия и решишь сам.
+А что приобретёшь, если зайдёт. Лёгкие 2000 за собственника или путь к 100% с сделок.
+
+Расклад в твою пользу. Пиши ОФИС или УДАЛЁНКА, это бесплатно.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 26</span><span class="ddate">23 июля</span><span class="dwd">четверг</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 23 июля · 🕘 09:00 МСК</span><span class="tag t-money">💰 Деньги</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Финал недели набора близко.
+
+Сегодня последний день, когда заявку точно успеваем разобрать к старту следующей группы.
+
+Напишешь в выходные, попадёшь уже в следующий поток. Решай.
+
+Успей в этот поток. Пиши ОФИС или УДАЛЁНКА сейчас.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 23 июля · 🕗 20:00 МСК</span><span class="tag t-people">⭐ Люди</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Сегодня в команду вышли трое новеньких 🎉
+
+Двое на удалёнку, уже ищут первых собственников. Один в офис, завтра первый показ.
+
+Неделю назад они «думали». Видишь, как быстро это меняется? Твоя очередь.
+
+Стань следующим. Пиши свою роль.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 27</span><span class="ddate">24 июля</span><span class="dwd">пятница</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 24 июля · 🕘 09:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-remote">🏠 удалёнка</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Выходные у удалёнщика это не «лежу выгораю».
+
+Это «полистал чаты, скинул пару собственников, получил плюс 4000 ₽ и пошёл по делам».
+
+Свобода распоряжаться временем дороже любого оклада.
+
+Хочешь так же? Пиши УДАЛЁНКА, подключим.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 24 июля · 🕗 20:00 МСК</span><span class="tag t-people">⭐ Люди</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Подписчик написал: «Мне 35, не поздно начать?»
+
+У нас заходят и в 19, и в 45. Удалёнке вообще без разницы, приводи собственников. В офисе важно, как ты работаешь с людьми, а не возраст.
+
+Поздно только жалеть, что не попробовал.
+
+Какой у тебя стоп? Напиши, разберём.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 28</span><span class="ddate">25 июля</span><span class="dwd">суббота</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 25 июля · 🕚 11:00 МСК</span><span class="tag t-money">💰 Деньги</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Месяц подходит к концу. По-честному.
+
+Через месяц ты либо там же, где сейчас, либо уже считаешь свои 2000 за каждого собственника или 50% с сделок.
+
+Разница в одном решении. Бесплатно. В одну личку.
+
+Прими решение. Пиши ОФИС или УДАЛЁНКА.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 25 июля · 🕖 19:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Вайб команды на выходных. Уже планируем следующий месяц, новые сделки, новых собственников, новых людей.
+
+Мы растём. Место для тех, кто хочет расти с нами, ещё есть. Но не бесконечно.
+
+Запрыгивай. Пиши +.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 29</span><span class="ddate">26 июля</span><span class="dwd">воскресенье</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 26 июля · 🕚 11:00 МСК</span><span class="tag t-money">💰 Деньги</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">⏳ Последние места в наборе этого месяца. И в офис, и на удалёнку.
+
+Закрываем приём заявок в конце недели. Кто успел, выходит на старт. Кто нет, ждёт следующий поток.
+
+Если внутри ёкнуло, это и есть ответ. Бронируй место, пиши + в личку.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 26 июля · 🕖 19:00 МСК</span><span class="tag t-people">⭐ Люди</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">За месяц вы видели деньги по обеим ролям, кухню, команду, истории «было, стало».
+
+Всё это реальные люди, которые когда-то так же читали ленту и однажды решились написать ОФИС или УДАЛЁНКА.
+
+Лента закончится. Решение за тобой. Сделай шаг, пиши свою роль.</div></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><span class="dnum">День 30</span><span class="ddate">27 июля</span><span class="dwd">понедельник</span></div>
+    <div class="post"><div class="ptop"><span class="slot">Утро</span><span class="when">📅 27 июля · 🕘 09:00 МСК</span><span class="tag t-money">💰 Деньги</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">🔥 ФИНАЛЬНЫЙ ДЕНЬ НАБОРА
+
+Последний день оставить заявку в этот поток.
+
+🏢 Офис. 50% со сделки, 100% после плана, обучение и наставник.
+🏠 Удалёнка. 2000 ₽ за каждого собственника, из дома, без опыта.
+
+Опыт не нужен. Нужно решение. Принимаешь? Пиши ОФИС или УДАЛЁНКА, забирай место.</div></div>
+    <div class="post"><div class="ptop"><span class="slot">Вечер</span><span class="when">📅 27 июля · 🕗 20:00 МСК</span><span class="tag t-fun">🔥 Движ</span><span class="rt r-both">⚡ обе роли</span><button class="copybtn">⧉ Копировать</button></div>
+      <div class="ptext">Набор этого месяца закрыт. Спасибо всем, кто решился. Встречаем новеньких в команде 🎉
+
+Не успел? Подпишись и следи, следующий поток будет. Но лучшие места всегда у тех, кто не тянет.
+
+До встречи в команде 🤝</div></div>
+  </div>
+
+  <div class="foot">30 дней · 60 постов · 2 роли. Старт 28 июня. Время по МСК, кнопка «Копировать» у каждого поста. Меняй цифры и имена на реальные.</div>
+
+</div>
+
+<div class="toast" id="toast">Скопировано ✓</div>
+
+<script>
+(function(){
+  var toast = document.getElementById('toast');
+  var toastTimer;
+  function showToast(){
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 1400);
+  }
+  function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly','');
+    ta.contentEditable = true;
+    ta.style.position = 'absolute';
+    ta.style.left = '-9999px';
+    ta.style.top = (window.pageYOffset || 0) + 'px';
+    ta.style.fontSize = '16px';
+    document.body.appendChild(ta);
+    try {
+      var isIOS = /ipad|iphone|ipod/i.test(navigator.userAgent);
+      if(isIOS){
+        var range = document.createRange();
+        range.selectNodeContents(ta);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, text.length);
+      } else {
+        ta.focus();
+        ta.select();
+      }
+      document.execCommand('copy');
+    } catch(e){}
+    document.body.removeChild(ta);
+  }
+  function doCopy(text){
+    if(navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext){
+      navigator.clipboard.writeText(text).catch(function(){ fallbackCopy(text); });
+    } else {
+      fallbackCopy(text);
+    }
+  }
+  document.querySelectorAll('.copybtn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      var post = btn.closest('.post');
+      var el = post.querySelector('.ptext');
+      if(!el) return;
+      doCopy(el.innerText.trim());
+      var prev = btn.innerHTML;
+      btn.classList.add('ok');
+      btn.innerHTML = '✓ Скопировано';
+      post.classList.add('copied');
+      showToast();
+      setTimeout(function(){
+        btn.classList.remove('ok');
+        btn.innerHTML = prev;
+        post.classList.remove('copied');
+      }, 1400);
+    });
+  });
+})();
+</script>
+</body>
+</html>
